@@ -1,4 +1,5 @@
 const express = require("express");
+const mysqlConnection = require("/Users/rice1/Documents/syntaxium/Simulacion-de-Inventario/src/connection");
 const app = express(); //Esta funcion retorna un objeto
 //settings //configuraciones del servidor
 app.set("port", process.env.PORT || 3006);
