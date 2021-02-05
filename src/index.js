@@ -11,6 +11,7 @@ app.use(express.json()); //Si se recibe un json nuestro mudulo de expres lo ente
 
 //Routes //Manera de comunicar el servidor con el navegador
 app.use("/api", require("./routes/main.js"));
+app.use("/api", require("./routes/getData"));
 
 //Sataring the server
 app.listen(app.get("port"), () => {
