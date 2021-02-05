@@ -6,7 +6,6 @@
     "devDependencies": {
         "nodemon": "^2.0.7"
     },
-    "name": "Pool_Conection",
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {

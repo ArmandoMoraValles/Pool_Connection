@@ -12,6 +12,7 @@ app.use(express.json()); //Si se recibe un json nuestro mudulo de expres lo ente
 app.use("/api", require("./routes/main.js"));
 app.use("/api", require("./routes/aprovados"));
 app.use("/api", require("./routes/products"));
+app.use("/api",require("./routes/addproduct.js"));
 
 //Sataring the server
 app.listen(app.get("port"), () => {
