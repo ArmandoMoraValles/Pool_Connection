@@ -18,16 +18,17 @@ const data = (sql, id) => {
 router.post("/replace", async(req, res) => {
     const { id, state } = req.body;
     arrayData = [state, id];
-    const rows = await data(`SELECT * FROM remplazado WHERE id = ?`, id);
-    if (rows.length > 0) {
+    const rowsOldProduct = await data(`SELECT * FROM remplazado WHERE id = ?`, id);
+    const jsonOldProduct = JSON.parse(JSON.stringify(rowsOldProduct));
+    const arrayOldProduct = [jsonOldProduct[0].id, jsonOldProduct[0].productos, jsonOldProduct[0].state, jsonOldProduct[0].date, id];
+    if (rowsOldProduct.length > 0) {
         if (state === 1) {
-            //Borrar dato temporal en la tabla
             data(`DELETE FROM remplazado
             WHERE id=?`, id)
-                //Cambiar el estado del nuevo producto
             data(`UPDATE inventario SET state = ? WHERE id = ?`, arrayData);
         } else if (state === 0) {
-            //rows = await data
+            data(`UPDATE inventario SET id = ?, productos = ?, state = ?, date = ? WHERE id = ?`, arrayOldProduct);
+            data(`DELETE FROM remplazado WHERE id=?`, id);
         }
     } else {
         //Es el producto que simplemente se agrego
@@ -37,7 +38,7 @@ router.post("/replace", async(req, res) => {
             //Se borra el dato
         }
     }
-    res.send(rows);
+    res.send(rowsOldProduct);
 });
 
 module.exports = router;
