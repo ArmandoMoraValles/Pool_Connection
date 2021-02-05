@@ -20,24 +20,27 @@ router.post("/replace", async(req, res) => {
     arrayData = [state, id];
     const rows = await data(`SELECT * FROM remplazado WHERE id = ?`, id);
     if (rows.length > 0) {
-        if (state === 1) {
+        if (state == 1) {
             //Borrar dato temporal en la tabla
             data(`DELETE FROM remplazado
             WHERE id=?`, id)
+            res.send("se borro un producto de remplazado con la id = " + id);
                 //Cambiar el estado del nuevo producto
-            data(`UPDATE inventario SET state = ? WHERE id = ?`, arrayData);
-        } else if (state === 0) {
-            //rows = await data
+            await data(`UPDATE inventario SET state = ? WHERE id = ?`, arrayData);
+            res.send("cambio el state del nuevo producto con id = " + id);
+        } else if (state == 0) {
+           data('UPDATE inventario set id = ?,set productos = (SELECT productos WHERE id = ?),set state = 1, date = (SELECT date WHERE id = ?)',id,id,id);
+           res.send("se acutalizo el state de un producto con id = " + id);
         }
     } else {
-        //Es el producto que simplemente se agrego
-        if (state === 1) {
-            //modificar el estado a 1 
-        } else if (state === 0) {
-            //Se borra el dato
+        if (state == 1) {
+            data(`UPDATE inventario SET state = ? WHERE id = ?`, arrayData);
+            res.send("se acutalizo el state de un producto con id = " + id);
+        } else if (state == 0) {
+            data(`DELETE FROM inventario WHERE id=?`, id);
+            res.send("se borro un producto con id = " + id);
         }
     }
-    res.send(rows);
 });
 
 module.exports = router;
