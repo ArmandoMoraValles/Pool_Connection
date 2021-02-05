@@ -13,7 +13,7 @@ app.use("/api", require("./routes/main.js"));
 app.use("/api", require("./routes/aprovados"));
 app.use("/api", require("./routes/products"));
 app.use("/api", require("./routes/addproduct.js"));
-app.use("/api", require("./routes/replace"));
+app.use("/api", require("./routes/replace.js"));
 //Sataring the server
 app.listen(app.get("port"), () => {
     console.log(`Server on port ${app.get("port")}`);
