@@ -1,6 +1,10 @@
 const express = require("express");
 const mysqlConection = require("../connection");
 const router = express.Router();
+/**
+ * 
+ * 
+ */
 
 const data = (sql, id) => {
     return new Promise((resolve, reject) => {
