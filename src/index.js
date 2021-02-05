@@ -9,7 +9,7 @@ app.use(express.json()); //Si se recibe un json nuestro mudulo de expres lo ente
 //app.use(body.json()); //formato app/json
 
 //Routes //Manera de comunicar el servidor con el navegador
-
+app.use("/api",require("./routes/main.js"));
 
 //Sataring the server
 app.listen(app.get("port"), () => {
