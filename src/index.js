@@ -1,5 +1,5 @@
 const express = require("express");
-const mysqlConnection = require("/Users/rice1/Documents/syntaxium/Simulacion-de-Inventario/src/connection");
+const mysqlConnection = require("./connection");
 const app = express(); //Esta funcion retorna un objeto
 //settings //configuraciones del servidor
 app.set("port", process.env.PORT || 3006);
@@ -10,7 +10,7 @@ app.use(express.json()); //Si se recibe un json nuestro mudulo de expres lo ente
 
 //Routes //Manera de comunicar el servidor con el navegador
 app.use("/api",require("./routes/main.js"));
-
+app.use("/api",require("./routes/aprovados"))
 //Sataring the server
 app.listen(app.get("port"), () => {
     console.log(`Server on port ${app.get("port")}`);

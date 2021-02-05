@@ -1,9 +1,5 @@
 node_modules
 connection.js
 index.js
-<<<<<<< HEAD
-packag-lock-json
-=======
 package-lock.json
 package.json
->>>>>>> main

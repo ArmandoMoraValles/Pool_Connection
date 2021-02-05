@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-const { Router } = require("express");
-=======
->>>>>>> main
 const express = require("express");
 const mysqlConection = require("../connection.js");
 const router = express.Router();
