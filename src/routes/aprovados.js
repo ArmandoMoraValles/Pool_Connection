@@ -1,3 +1,11 @@
+/**
+ * 
+ * @aprovados : manda como respuesta los solo los productos
+ * con un estado 1 (aprovado)
+ * 
+ */
+
+
 const express = require("express");
 const mysqlConection = require("../connection");
 const router = express.Router();

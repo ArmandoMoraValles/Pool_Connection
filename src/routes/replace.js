@@ -1,3 +1,10 @@
+/**
+ * 
+ * @replace :  Altera el estado de un producto en la base de datos
+ * por medio de si id
+ * 
+ */
+
 const express = require("express");
 const mysqlConection = require("../connection");
 const router = express.Router();

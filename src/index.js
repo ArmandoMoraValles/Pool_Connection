@@ -1,3 +1,9 @@
+/**
+ * 
+ * Creacion del servidor local y declaracion de las rutas a utilizar en el proyecto 
+ * 
+ */
+
 const express = require("express");
 const mysqlConnection = require("./connection");
 const app = express(); //Esta funcion retorna un objeto

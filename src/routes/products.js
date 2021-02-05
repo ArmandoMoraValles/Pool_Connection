@@ -1,10 +1,13 @@
+/**
+ * 
+ * @newProducts : remplaza un producto existente en la base de datos
+ * con estado 0 (por aprobar)
+ *  
+ */
+
 const express = require("express");
 const mysqlConection = require("../connection");
 const router = express.Router();
-/**
- * 
- * 
- */
 
 const data = (sql, id) => {
     return new Promise((resolve, reject) => {
