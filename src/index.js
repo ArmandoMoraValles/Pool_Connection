@@ -1,6 +1,8 @@
 const express = require("express");
-const app = express(); //Esta funcion retorna un objeto
-//settings //configuraciones del servidor
+const app = express();
+const mysqlConection = require("./connection")
+    //Esta funcion retorna un objeto
+    //settings //configuraciones del servidor
 app.set("port", process.env.PORT || 3006);
 
 //midlewars //funciones que se ejecutan antes de que se procese algo 
