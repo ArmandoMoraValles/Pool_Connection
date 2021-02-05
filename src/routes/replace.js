@@ -31,7 +31,6 @@ router.post("/replace", async(req, res) => {
         } else if (state == 0) {
            data('UPDATE inventario set id = ?,set productos = (SELECT productos WHERE id = ?),set state = 1, date = (SELECT date WHERE id = ?)',id,id,id);
            res.send("se acutalizo el state de un producto con id = " + id);
-        }
     } else {
         if (state == 1) {
             data(`UPDATE inventario SET state = ? WHERE id = ?`, arrayData);
@@ -41,6 +40,7 @@ router.post("/replace", async(req, res) => {
             res.send("se borro un producto con id = " + id);
         }
     }
+}
 });
 
 module.exports = router;
