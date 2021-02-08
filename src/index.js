@@ -8,7 +8,7 @@ const express = require("express");
 const mysqlConnection = require("./connection");
 const app = express(); //Esta funcion retorna un objeto
 //settings //configuraciones del servidor
-app.set("port", process.env.PORT || 3006);
+app.set("port", process.env.PORT || 3306);
 
 //midlewars //funciones que se ejecutan antes de que se procese algo 
 app.use(express.json()); //Si se recibe un json nuestro mudulo de expres lo entendera
