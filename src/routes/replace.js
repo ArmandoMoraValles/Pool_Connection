@@ -35,6 +35,7 @@ router.post("/replace", async(req, res) => {
             await data(`UPDATE inventario SET state = ? WHERE id = ?`, arrayData);
             res.send("ok")
         } else if (state === 0) {
+            console.log(arrayOldProduct);
             await data(`UPDATE inventario SET id = ?, productos = ?, state = ?, date = ? WHERE id = ?`, arrayOldProduct);
             await data(`DELETE FROM remplazado WHERE id=?`, id);
             res.send("ok")
